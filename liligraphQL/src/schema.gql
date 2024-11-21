@@ -1,0 +1,78 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Ivehiculo {
+  id: ID!
+  descripcion: String!
+  placa: String!
+  color: String!
+}
+
+type Iespaciodeparqueo {
+  id: ID!
+  descripcion: String!
+}
+
+type Iparquear {
+  id: ID!
+  espacio: Iespaciodeparqueo!
+  vehiculo: Ivehiculo!
+  fechayhoradeentrada: String!
+  fechayhoradesalida: String!
+}
+
+type Query {
+  ivehiculo(id: String!): Ivehiculo!
+  iespaciodeparqueo(id: String!): Iespaciodeparqueo!
+  iparquear(id: String!): Iparquear!
+}
+
+type Mutation {
+  createIvehiculo(createIvehiculoInput: CreateIvehiculoInput!): Ivehiculo!
+  updateIvehiculo(updateIvehiculoInput: UpdateIvehiculoInput!): Ivehiculo!
+  removeIvehiculo(id: String!): Ivehiculo!
+  createIespaciodeparqueo(createIespaciodeparqueoInput: CreateIespaciodeparqueoInput!): Iespaciodeparqueo!
+  updateIespaciodeparqueo(updateIespaciodeparqueoInput: UpdateIespaciodeparqueoInput!): Iespaciodeparqueo!
+  removeIespaciodeparqueo(id: String!): Iespaciodeparqueo!
+  createIparquear(createIparquearInput: CreateIparquearInput!): Iparquear!
+  updateIparquear(updateIparquearInput: UpdateIparquearInput!): Iparquear!
+  removeIparquear(id: String!): Iparquear!
+}
+
+input CreateIvehiculoInput {
+  descripcion: String!
+  placa: String!
+  color: String!
+}
+
+input UpdateIvehiculoInput {
+  descripcion: String
+  placa: String
+  color: String
+  id: ID!
+}
+
+input CreateIespaciodeparqueoInput {
+  descripcion: String!
+}
+
+input UpdateIespaciodeparqueoInput {
+  descripcion: String
+  id: ID!
+}
+
+input CreateIparquearInput {
+  espacioId: String!
+  vehiculoId: String!
+  fechayhoradeentrada: String!
+  fechayhoradesalida: String!
+}
+
+input UpdateIparquearInput {
+  espacioId: String
+  vehiculoId: String
+  fechayhoradeentrada: String
+  fechayhoradesalida: String
+  id: ID!
+}
