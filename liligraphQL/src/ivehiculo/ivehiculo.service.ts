@@ -33,6 +33,6 @@ export class IvehiculoService {
 
   async remove(id: string):Promise<Ivehiculo> {
     const erase=await this.ivehiculoRepository.findOne({where:{id}});
-    return await this.ivehiculoRepository.save(erase);
+    return await this.ivehiculoRepository.remove(erase);
   }
 }

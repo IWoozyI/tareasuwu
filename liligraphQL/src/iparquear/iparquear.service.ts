@@ -34,6 +34,6 @@ export class IparquearService {
 
   async remove(id: string):Promise<Iparquear> {
     const erase=await this.iparquearRepository.findOne({where:{id}});
-    return await this.iparquearRepository.save(erase);
+    return await this.iparquearRepository.remove(erase);
   }
 }

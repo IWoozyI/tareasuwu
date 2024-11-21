@@ -33,6 +33,6 @@ export class IespaciodeparqueoService {
 
   async remove(id: string):Promise<Iespaciodeparqueo> {
     const erase=await this.iespaciodeparqueoRepository.findOne({where:{id}});
-    return await this.iespaciodeparqueoRepository.save(erase);
+    return await this.iespaciodeparqueoRepository.remove(erase);
   }
 }
