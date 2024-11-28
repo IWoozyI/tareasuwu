@@ -10,6 +10,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 import { join } from 'path';
 import { IespaciodeparqueoModule } from './iespaciodeparqueo/iespaciodeparqueo.module';
 import { IparquearModule } from './iparquear/iparquear.module';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { IparquearModule } from './iparquear/iparquear.module';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
+    UsuarioModule,
     IvehiculoModule,
     IespaciodeparqueoModule,
     IparquearModule],

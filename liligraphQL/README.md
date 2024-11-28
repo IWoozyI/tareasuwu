@@ -1,14 +1,14 @@
-Se necesita instalar nest.js mediante el comando nest new
-Se necesita instalar config, validations y graphQL
-Para levantar el proyecto se debe ejecutar la linea de comando npm run start:dev
-Luego debe dirigirse a la direccion http://localhost:5432/graphql
+Se necesita instalar nest.js 
+Se necesita instalar las dependencias de Websocket
+Ejecutar la linea de comando npm run start:dev
+Dirigirse a la direccion ws://localhost:5432/
 
 Imagenes de evidencia:
 
-![](test/MUTACION_CREAR_VEHICULO.png)
+![](test/entidad1.png)
 
-![](test/MUTACION_ESPACIOPARQUEO.png)
+![](test/entidad2.png)
 
-![](test/REMOVE_ESPACIOPARQUEO.png)
+![](test/envio1.png)
 
-![](test/REMOVE_ESPACIOPARQUEO.png)
+![](test/recibo2.png)
