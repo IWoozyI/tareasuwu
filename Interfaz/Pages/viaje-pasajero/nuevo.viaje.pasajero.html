@@ -119,6 +119,17 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
+    /* Estilos para la imagen */
+    .service-image {
+      width: 100%; /* Ajusta la imagen al ancho de su contenedor */
+      max-width: 300px; /* Opcional: controlas el tamaño máximo de la imagen */
+      margin-top: 20px; /* Espacio entre los botones y la imagen */
+      border-radius: 8px; /* Redondea las esquinas, si lo deseas */
+      display: block; /* Asegura que la imagen se muestre como bloque */
+      margin-left: auto;
+      margin-right: auto; /* Centra la imagen en su contenedor */
+    }
   </style>
 </head>
 <body>
@@ -138,6 +149,9 @@
         <button class="tab active">pasajero</button>
         <button class="tab">conductor</button>
       </div>
+
+      <!-- Imagen debajo de las opciones -->
+      <img src="../media/LOGO.png" alt="Imagen relacionada" class="service-image">
 
       <label>¿A dónde vas?</label>
       <select>
