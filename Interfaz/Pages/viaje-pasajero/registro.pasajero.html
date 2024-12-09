@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viajes Registrados</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdf5ee;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #f9d735;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img {
+      height: 24px;
+    }
+    header input {
+      flex-grow: 1;
+      margin: 0 20px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    header button {
+      background-color: #f9d735;
+      border: none;
+      cursor: pointer;
+    }
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+    h2 {
+      color: #f1af17;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 250px;
+      padding: 15px;
+      text-align: left;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .card h3 {
+      font-size: 1.2em;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .card ul {
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+    .card ul li {
+      margin-bottom: 5px;
+      font-size: 0.9em;
+    }
+    .card p {
+      font-size: 0.9em;
+      line-height: 1.4;
+      margin: 10px 0;
+    }
+    .card button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #5f3b95;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .card button:hover {
+      background-color: #482d73;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><img src="logo.png" alt="Ruedas Conectadas"> ruedas conectadas</div>
+    <input type="text" placeholder="buscar viajes">
+    <div>
+      <img src="bell-icon.png" alt="notificaciones">
+      <img src="profile-icon.png" alt="perfil">
+      <button>iniciar cuenta</button>
+    </div>
+  </header>
+  <main>
+    <h2>viajes actuales registrados:</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>estado: incompleto</h3>
+        <p><strong>usuarios registrados:</strong></p>
+        <ul>
+          <li>aaaaaaa</li>
+          <li>asssad</li>
+          <li>addada</li>
+        </ul>
+        <p><strong>detalles:</strong></p>
+        <p>xxxxxxxxxxxxx<br>xxxxxxxxxxxxxxxxx<br>xxxx<br>xxxxxxxxx<br>xxxxx<br>xxxxxxxxxxxxxx</p>
+        <button>revisar</button>
+      </div>
+      <div class="card">
+        <h3>estado: completo</h3>
+        <p><strong>usuarios registrados:</strong></p>
+        <ul>
+          <li>aaaaaaa</li>
+          <li>asssad</li>
+          <li>addada</li>
+        </ul>
+        <p><strong>detalles:</strong></p>
+        <p>xxxxxxxxxxxxx<br>xxxxxxxxxxxxxxxxx<br>xxxx<br>xxxxxxxxx<br>xxxxx<br>xxxxxxxxxxxxxx</p>
+        <button>revisar</button>
+      </div>
+      <div class="card">
+        <h3>estado: proceso</h3>
+        <p><strong>usuarios registrados:</strong></p>
+        <ul>
+          <li>aaaaaaa</li>
+          <li>asssad</li>
+          <li>addada</li>
+        </ul>
+        <p><strong>detalles:</strong></p>
+        <p>xxxxxxxxxxxxx<br>xxxxxxxxxxxxxxxxx<br>xxxx<br>xxxxxxxxx<br>xxxxx<br>xxxxxxxxxxxxxx</p>
+        <button>revisar</button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

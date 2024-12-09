@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Método de Pago</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdf5ee;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #f9d735;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img {
+      height: 24px;
+    }
+    header input {
+      flex-grow: 1;
+      margin: 0 20px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    header button {
+      background-color: #f9d735;
+      border: none;
+      cursor: pointer;
+    }
+    main {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .left-section, .right-section {
+      width: 48%;
+    }
+    h2 {
+      text-align: center;
+      color: #444;
+      font-size: 1.5em;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .checkbox-container input {
+      margin-right: 10px;
+    }
+    .summary {
+      padding: 10px;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      border-radius: 5px;
+    }
+    .summary p {
+      margin: 5px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .total {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    button.finalizar {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button.finalizar:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><img src="logo.png" alt="Ruedas Conectadas"> ruedas conectadas</div>
+    <input type="text" placeholder="buscar viajes">
+    <div>
+      <img src="bell-icon.png" alt="notificaciones">
+      <img src="profile-icon.png" alt="perfil">
+      <button>iniciar cuenta</button>
+    </div>
+  </header>
+  <main>
+    <div class="left-section">
+      <h2>método de pago</h2>
+      <div class="form-group">
+        <label for="numero-tarjeta">número de tarjeta:</label>
+        <input type="text" id="numero-tarjeta" placeholder="Ingrese su número de tarjeta">
+      </div>
+      <div class="form-group">
+        <label for="fecha-vencimiento">fecha de vencimiento:</label>
+        <input type="text" id="fecha-vencimiento" placeholder="MM/AA">
+      </div>
+      <div class="form-group">
+        <label for="codigo-seguridad">código de seguridad:</label>
+        <input type="number" id="codigo-seguridad" placeholder="Ingrese el CVV">
+      </div>
+      <div class="checkbox-container">
+        <input type="checkbox" id="guardar-tarjeta">
+        <label for="guardar-tarjeta">guardar la tarjeta para futuras compras</label>
+      </div>
+    </div>
+    <div class="right-section">
+      <h2>resumen</h2>
+      <div class="summary">
+        <p><span>pasaje adulto (1):</span> <span>15</span></p>
+        <p><span>pasaje infante (1):</span> <span>7.50</span></p>
+        <p class="total"><span>total:</span> <span>22.50</span></p>
+      </div>
+      <button class="finalizar">finalizar</button>
+    </div>
+  </main>
+</body>
+</html>

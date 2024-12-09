@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruedas Conectadas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdf5ee;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #f9d735;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img {
+      height: 24px;
+    }
+    header input {
+      flex-grow: 1;
+      margin: 0 20px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    header button {
+      background-color: #f9d735;
+      border: none;
+      cursor: pointer;
+    }
+    main {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
+    }
+    .left-section {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .right-section {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #f9a825;
+      font-size: 1.5em;
+      margin-top: 0;
+    }
+    .map {
+      width: 100%;
+      height: 200px;
+      background-color: #e3e3e3;
+      border: 1px solid #ddd;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .total {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    button.pagar {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button.pagar:hover {
+      background-color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><img src="logo.png" alt="Ruedas Conectadas"> ruedas conectadas</div>
+    <input type="text" placeholder="buscar viajes">
+    <div>
+      <img src="bell-icon.png" alt="notificaciones">
+      <img src="profile-icon.png" alt="perfil">
+      <button>iniciar cuenta</button>
+    </div>
+  </header>
+  <main>
+    <div class="left-section">
+      <h2>detalles:</h2>
+      <div>
+        <h3>reglas:</h3>
+        <p>List item Supporting line text lorem ipsum dolor sit amet, consectetur.</p>
+      </div>
+      <div>
+        <h3>ubicacion:</h3>
+        <div class="map"></div>
+      </div>
+      <div>
+        <h3>punto de salida:</h3>
+        <p>Supporting line text lorem ipsum dolor sit amet, consectetur.</p>
+      </div>
+    </div>
+    <div class="right-section">
+      <h2>verificar la informacion:</h2>
+      <label for="adultos">adultos (edad: 13-64)</label>
+      <input type="number" id="adultos" value="1" min="0">
+      <label for="infantes">infantes (5-12)</label>
+      <input type="number" id="infantes" value="1" min="0">
+      <label for="destino">destino</label>
+      <select id="destino">
+        <option value="tangamandapio">tangamandapio</option>
+      </select>
+      <label for="fecha-hora">fecha y hora de inicio del viaje:</label>
+      <input type="datetime-local" id="fecha-hora" value="2022-12-20T12:30">
+      <div class="total">total: U$922.50</div>
+      <small>incluye impuestos y cargos</small>
+      <button class="pagar">pagar</button>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruedas Conectadas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf7ee;
+        }
+        header {
+            background-color: #f9da6e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        header input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-left: -20px;
+        }
+        header .actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        header .actions button {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 12px;
+            background-color: goldenrod;
+            color: white;
+            border-color: goldenrod;
+            font-size: 15px;
+        }
+
+        header .actions button:hover{
+            background-color: gold;
+            border-color: gold;
+            overflow: hidden;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+        main {
+            padding: 20px;
+            margin-top: 50px;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h2 {
+            text-align: center;
+            color: black;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #f9da6e;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .form-group button:hover {
+            background-color: goldenrod;
+        }
+        .email-login {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .email-login button {
+            background-color: #f9da6e;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .email-login button:hover {
+            background-color: goldenrod;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Ruedas Conectadas</div>
+        <input type="text" placeholder="Buscar viajes">
+        <div class="actions">
+            <button href="#">Iniciar Cuenta</button>
+        </div>
+    </header>
+    <main>
+        <div class="login-container">
+            <h2>¿Cómo quieres iniciar sesión?</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nombres">Nombres:</label>
+                    <input type="text" id="nombres" placeholder="Ingrese su nombre">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" placeholder="Ingrese su correo">
+                </div>
+                <div class="form-group">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" placeholder="Ingrese su contraseña">
+                </div>
+                <div class="form-group">
+                    <button type="submit">Registrar</button>
+                </div>
+            </form>
+            <div class="email-login">
+                <button>Continuar con Gmail</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

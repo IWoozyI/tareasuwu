@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesibilidad</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            margin: 20px auto;
+            padding: 15px;
+            max-width: 600px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            section {
+                max-width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Opciones de Accesibilidad</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Ajustes de Accesibilidad</h2>
+            <button onclick="aumentarTexto()">Aumentar Texto</button>
+            <button onclick="disminuirTexto()">Disminuir Texto</button>
+            <button onclick="altoContraste()">Alto Contraste</button>
+            <button onclick="restablecer()">Restablecer Ajustes</button>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Viajes Compartidos</p>
+    </footer>
+    <script>
+        function aumentarTexto() {
+            document.body.style.fontSize = "larger";
+        }
+        function disminuirTexto() {
+            document.body.style.fontSize = "smaller";
+        }
+        function altoContraste() {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+        function restablecer() {
+            document.body.style = "";
+        }
+    </script>
+</body>
+</html>

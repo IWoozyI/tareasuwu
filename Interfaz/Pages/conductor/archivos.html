@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elige tu servicio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdf5ee;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #f9d735;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img {
+      height: 24px;
+    }
+    header input {
+      flex-grow: 1;
+      margin: 0 20px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    header button {
+      background-color: #f9d735;
+      border: none;
+      cursor: pointer;
+    }
+    main {
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #f1af17;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+    .options {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .option {
+      padding: 10px 20px;
+      border: 2px solid #f1af17;
+      border-radius: 20px;
+      background-color: white;
+      color: #333;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+    }
+    .option.active {
+      background-color: #f1af17;
+      color: white;
+    }
+    .form-container {
+      display: flex;
+      gap: 50px;
+      justify-content: center;
+    }
+    .form-section {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 300px;
+    }
+    .form-section h3 {
+      font-size: 1.2em;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .upload-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .upload-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      cursor: pointer;
+    }
+    .upload-button:hover {
+      background-color: #f1f1f1;
+    }
+    .upload-button img {
+      height: 20px;
+    }
+    .extra-info {
+      margin-top: 15px;
+    }
+    .extra-info textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: none;
+    }
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    .actions button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    .actions button.back {
+      background-color: #ddd;
+      color: #333;
+    }
+    .actions button.next {
+      background-color: #f1af17;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <img src="logo.png" alt="Ruedas Conectadas"> ruedas conectadas
+    </div>
+    <input type="text" placeholder="buscar viajes">
+    <div>
+      <img src="bell-icon.png" alt="notificaciones">
+      <img src="profile-icon.png" alt="perfil">
+      <button>iniciar cuenta</button>
+    </div>
+  </header>
+  <main>
+    <h2>elige tu servicio</h2>
+    <div class="options">
+      <div class="option">pasajero</div>
+      <div class="option active">conductor</div>
+    </div>
+    <div class="form-container">
+      <div class="form-section">
+        <h3>registro de auto:</h3>
+        <div class="form-group">
+          <label for="placa">placa:</label>
+          <input type="text" id="placa" placeholder="Ingrese la placa">
+        </div>
+        <div class="form-group">
+          <label for="modelo">modelo:</label>
+          <input type="text" id="modelo" placeholder="Ingrese el modelo">
+        </div>
+        <h3>licencia de conducir:</h3>
+        <div class="form-group">
+          <label for="licencia">número de licencia de conducir:</label>
+          <input type="text" id="licencia" placeholder="Ingrese el número">
+        </div>
+        <div class="form-group">
+          <label for="fecha-exp">fecha de expiración:</label>
+          <input type="date" id="fecha-exp">
+        </div>
+      </div>
+      <div class="form-section">
+        <h3>carga de documentación:</h3>
+        <div class="upload-buttons">
+          <div class="upload-button">
+            <span>foto de licencia:</span>
+            <img src="upload-icon.png" alt="subir">
+          </div>
+          <div class="upload-button">
+            <span>foto de vehículo:</span>
+            <img src="upload-icon.png" alt="subir">
+          </div>
+          <div class="upload-button">
+            <span>confirmación de identidad:</span>
+            <img src="upload-icon.png" alt="subir">
+          </div>
+          <div class="upload-button">
+            <span>carta de antecedentes no penales:</span>
+            <img src="upload-icon.png" alt="subir">
+          </div>
+        </div>
+        <div class="extra-info">
+          <label for="info-extra">información extra:</label>
+          <textarea id="info-extra" rows="4" placeholder="Escriba información adicional"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="back">regresar</button>
+      <button class="next">siguiente</button>
+    </div>
+  </main>
+</body>
+</html>

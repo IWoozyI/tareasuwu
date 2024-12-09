@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruedas Conectadas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf7ee;
+        }
+        header {
+            background-color: #f9da6e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        header input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-left: -20px;
+        }
+        header .actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        header .actions button {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 12px;
+            background-color: goldenrod;
+            color: white;
+            border-color: goldenrod;
+            font-size: 15px;
+        }
+
+        header .actions button:hover{
+            background-color: gold;
+            border-color: gold;
+            overflow: hidden;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+        main {
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .service-section {
+            flex: 1;
+            padding: 40px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 500px;
+
+        }
+        .service-section h2 {
+            text-align: center;
+            color: #f9da6e;
+        }
+        .service-section button {
+            background-color: #f9da6e;
+            color: black;
+            border: none;
+            padding: 12px 50px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 50px;
+            font-size: 20px;
+        }
+
+        .service-section button:hover{
+            background-color: goldenrod;
+            border-color: goldenrod;
+        }
+
+        .service-section button.active {
+            background-color: black;
+            color: white;
+            margin-right: 50px;
+        }
+
+        .service-section button.active:hover{
+            background-color: gray;
+            border-color: gray;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .results {
+            flex: 1;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+        }
+        .results h2 {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Ruedas Conectadas</div>
+        <input type="text" placeholder="Buscar viajes">
+        <div class="actions">
+            <button href="#">Iniciar Sesion</button>
+        </div>
+    </header>
+    <main>
+        <h1>Elige tu servicio</h1>
+        <div class="container">
+            <div class="service-section">
+                <button class="active">Pasajero</button>
+                <button>Conductor</button>
+                <form>
+                    <div class="form-group">
+                        <label for="destino">¿A dónde vas?</label>
+                        <input type="text" id="destino" placeholder="Selecciona">
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha">Selecciona tu fecha:</label>
+                        <input type="date" id="fecha">
+                    </div>
+                    <div class="form-group">
+                        <label>Pasajeros:</label>
+                        <div>
+                            Adultos: <input type="number" min="0" value="1">
+                            Menores: <input type="number" min="0" value="0">
+                        </div>
+                    </div>
+                    <button type="button">Ver disponibles</button>
+                </form>
+            </div>
+            <div class="results">
+                <h2>Resultado:</h2>
+                <p>Aún no hay viajes. Los conductores suelen publicarlos 2 o 3 días antes de la salida.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
