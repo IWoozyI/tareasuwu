@@ -226,7 +226,7 @@
             <img src="../media/LOGO.png" alt="Imagen relacionada" class="service-image">
 
             <label>¿A dónde vas?</label>
-            <select>
+            <select id="destinos">
                 <option>Selecciona...</option>
             </select>
             <label>Fecha de viaje:</label>
@@ -269,6 +269,34 @@
     </main>
 
     <script>
+// Array con lugares de Manta, Ecuador
+const destinosManta = [
+    { value: "playa_el_murcielago", text: "Playa El Murciélago" },
+    { value: "playa_san_lorenzo", text: "Playa San Lorenzo" },
+    { value: "tarqui", text: "Tarqui" },
+    { value: "mall_del_pacifico", text: "Mall del Pacífico" },
+    { value: "parque_central_manta", text: "Parque Central de Manta" },
+    { value: "puerto_de_manta", text: "Puerto de Manta" },
+    { value: "playa_santa_marianita", text: "Playa Santa Marianita" },
+    { value: "museo_centro_civico", text: "Museo Centro Cívico" }
+];
+
+// Función para cargar las opciones en el menú desplegable
+function cargarDestinos() {
+    const selectDestino = document.getElementById("destinos");
+
+    destinosManta.forEach(destino => {
+        const option = document.createElement("option");
+        option.value = destino.value; // Valor de la opción
+        option.textContent = destino.text; // Texto visible de la opción
+        selectDestino.appendChild(option); // Agregar la opción al <select>
+    });
+}
+
+// Llamar a la función para cargar los destinos
+cargarDestinos();
+
+
         let adults = 1; // Contador de adultos
         let tripType = "ida-vuelta"; // Tipo de viaje por defecto
 
@@ -285,47 +313,6 @@
             if (adults < 1) adults = 1;
             document.getElementById("adults-count").textContent = adults;
         }
-
-    // Función para mostrar resultados dinámicos
-    function showResults() {
-        const resultsContainer = document.getElementById("results-container");
-        resultsContainer.innerHTML = ""; // Limpia resultados previos
-
-        const opciones = [
-            { adultos: 1, detalle: "Viaje sencillo para 1 adulto", valor: "$50" },
-            { adultos: 2, detalle: "Viaje para pareja", valor: "$90" },
-            { adultos: 3, detalle: "Viaje grupal económico", valor: "$130" },
-            { adultos: 4, detalle: "Viaje grupal completo", valor: "$170" },
-        ];
-
-        const filtro = opciones.filter(op => op.adultos === adults);
-
-        if (filtro.length) {
-            filtro.forEach(opcion => {
-                const div = document.createElement("div");
-                div.className = "result";
-                div.innerHTML = `
-                    <div>
-                        <p><strong>${opcion.detalle}</strong></p>
-                        <p>Precio: ${opcion.valor}</p>
-                        <p>Tipo de Viaje: ${tripType}</p>
-                    </div>
-                    <button class="select-button" onclick="window.location.href='detalles.viaje.pasajero.html';">Seleccionar</button>
-
-                `;
-                resultsContainer.appendChild(div);
-            });
-        } else {
-            resultsContainer.innerHTML = "<p>No hay opciones disponibles para el número de adultos seleccionado.</p>";
-        }
-    }
-
-    // Función para guardar la fecha
-    function guardarFecha() {
-        const fecha = document.getElementById('fecha-viaje').value;
-        localStorage.setItem('fechaViaje', fecha); // Guardamos la fecha en localStorage
-    }
-
 
 // Función para mostrar resultados dinámicos
 function showResults() {
@@ -355,7 +342,7 @@ function showResults() {
                     <p>Precio: $${precioFinal}</p>
                     <p>Tipo de Viaje: ${tripType}</p>
                 </div>
-                <button class="select-button" onclick="guardarSeleccion(${opcion.adultos},${precioFinal})">Seleccionar</button>
+                <a href="detalles.viaje.pasajero.html"><button class="select-button" onclick="guardarSeleccion(${opcion.adultos},${precioFinal})">Seleccionar</button></a>
             `;
             resultsContainer.appendChild(div);
         });
@@ -366,9 +353,15 @@ function showResults() {
 
         // Función para guardar la selección en localStorage
         function guardarSeleccion(adultosSeleccionados, precioFinal) {
-            localStorage.setItem('adultosSeleccionados', adultosSeleccionados);
-            localStorage.setItem('precioFinal',precioFinal);
-            window.location.href = 'detalles.viaje.pasajero.html'; // Redirige después de guardar
+                const destinoSeleccionado = document.getElementById("destinos").value;
+
+                localStorage.setItem('adultosSeleccionados', adultosSeleccionados);
+                localStorage.setItem('precioFinal',precioFinal);
+                localStorage.setItem('destinoSeleccionado', destinoSeleccionado);
+
+                window.location.href = 'detalles.viaje.pasajero.html'; // Redirige después de guardar                    
+
+            
         }
 
         // Función para mostrar u ocultar el menú de accesibilidad
