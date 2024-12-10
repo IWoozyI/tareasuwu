@@ -102,13 +102,19 @@
   </style>
 </head>
 <body>
-  <header>
-    <div><img src="logo.png" alt="Ruedas Conectadas"> ruedas conectadas</div>
-    <input type="text" placeholder="buscar viajes">
-    <div>
-      <img src="bell-icon.png" alt="notificaciones">
-      <img src="profile-icon.png" alt="perfil">
-      <button>iniciar cuenta</button>
+  <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px;">
+    <div style="display: flex; align-items: center;">
+      <img src="../media/LOGO.png" alt="Ruedas Conectadas" style="height: 24px; margin-right: 10px;">
+      <span>Ruedas Conectadas</span>
+    </div>
+    <input type="text" placeholder="Buscar viajes">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <a href="../login.html"><button>Cuenta</button></a>
+      <a href="../chatbot.html">
+        <button style="background: none; border: none; cursor: pointer;">
+          <img src="../media/bot.png" alt="Chatbot" style="width: 40px; height: 40px;">
+        </button>
+      </a>
     </div>
   </header>
   <main>
@@ -134,12 +140,17 @@
     <div class="right-section">
       <h2>resumen</h2>
       <div class="summary">
-        <p><span>pasaje adulto (1):</span> <span>15</span></p>
-        <p><span>pasaje infante (1):</span> <span>7.50</span></p>
-        <p class="total"><span>total:</span> <span>22.50</span></p>
+        <p><span>pasaje adulto (1):</span> <span>90</span></p>
+        <p><span>pasaje infante (1):</span> <span>0</span></p>
+        <p class="total"><span>total:</span> <span>90</span></p>
       </div>
-      <button class="finalizar">finalizar</button>
+      <button class="finalizar" onclick="Alerta()">finalizar</button>
     </div>
   </main>
+  <script>
+    function Alerta() {
+        alert("Se ha generado un nuevo viaje, se enviaran los datos completos del vehiculo al correo de esta cuenta");
+    }
+</script>
 </body>
 </html>

@@ -1,251 +1,399 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ruedas Conectadas</title>
-  <style>
-    /* Estilos Generales */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #FDF5EE;
-    }
-    header {
-      background-color: #F9D735;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-    }
-    header input, header button {
-      border: none;
-      padding: 8px;
-      border-radius: 5px;
-    }
-    header button {
-      background-color: #FFBA36;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruedas Conectadas</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FDF5EE;
+        }
+        header {
+            background-color: #F9D735;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        header input, header button {
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        header button {
+            background-color: #FFBA36;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-    /* Contenido Principal */
-    main {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 20px;
-    }
-    .left-section, .right-section {
-      width: 40%;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 5px #ccc;
-    }
+        /* Contenido Principal */
+        main {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .left-section, .right-section {
+            margin-left: 30px;
+            width: 40%;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 5px #ccc;
+        }
 
-    .tabs {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .tab {
-      background-color: #F9D735;
-      border: none;
-      padding: 10px;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .tab.active { background-color: #FFBA36; }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tab {
+            background-color: #F9D735;
+            border: none;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .tab.active { background-color: #FFBA36; }
 
-    /* Formulario */
-    label {
-      font-weight: bold;
-      margin-top: 10px;
-      display: inline-block;
-    }
-    select, input[type="date"] {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    .trip-type button {
-      padding: 5px 10px;
-      border: 1px solid #FFBA36;
-      background-color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .trip-type button.active {
-      background-color: #FFBA36;
-      color: white;
-    }
-    .passenger-count {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-    .passenger-count button {
-      padding: 5px;
-      border: 1px solid #ccc;
-      cursor: pointer;
-    }
-    .view-button {
-      background-color: #FFBA36;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        /* Formulario */
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        select, input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .trip-type button {
+            padding: 5px 10px;
+            border: 1px solid #FFBA36;
+            background-color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .trip-type button.active {
+            background-color: #FFBA36;
+            color: white;
+        }
+        .passenger-count {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .passenger-count div {
+            margin-bottom: 10px; 
+        }
+        .passenger-count button {
+            padding: 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .view-button {
+            background-color: #FFBA36;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-    /* Resultados */
-    .result {
-      border: 1px solid #ccc;
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-    }
-    .select-button {
-      background-color: #FFBA36;
-      color: white;
-      border: none;
-      padding: 5px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        /* Resultados */
+        .result {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .select-button {
+            background-color: #FFBA36;
+            color: white;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-    /* Estilos para la imagen */
-    .service-image {
-      width: 100%; /* Ajusta la imagen al ancho de su contenedor */
-      max-width: 300px; /* Opcional: controlas el tamaño máximo de la imagen */
-      margin-top: 20px; /* Espacio entre los botones y la imagen */
-      border-radius: 8px; /* Redondea las esquinas, si lo deseas */
-      display: block; /* Asegura que la imagen se muestre como bloque */
-      margin-left: auto;
-      margin-right: auto; /* Centra la imagen en su contenedor */
-    }
-  </style>
+        /* Estilos para la imagen */
+        .service-image {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 20px;
+            border-radius: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Estilos para el menú de accesibilidad */
+        .menu-btn {
+            position: fixed;
+            top: 100px;  /* Ajusta la posición en la página */
+            left: 0; /* Pegado al lado izquierdo */
+            background-color: #FFBA36; /* Fondo amarillo */
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px; /* Altura del botón */
+            width: 40px; /* Ancho del botón */
+        }
+
+        .menu-btn img {
+            width: 30px; /* Tamaño de la imagen de accesibilidad */
+            height: 30px; /* Tamaño de la imagen de accesibilidad */
+            object-fit: contain;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 120px;
+            left: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .menu button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .menu.show {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-  <!-- Encabezado -->
-  <header>
-    <strong>ruedas conectadas</strong>
-    <input type="text" placeholder="Buscar viajes">
-    <button>iniciar cuenta</button>
-  </header>
-
-  <!-- Contenido Principal -->
-  <main>
-    <!-- Sección Izquierda -->
-    <section class="left-section">
-      <h2>elige tu servicio</h2>
-      <div class="tabs">
-        <button class="tab active">pasajero</button>
-        <button class="tab">conductor</button>
-      </div>
-
-      <!-- Imagen debajo de las opciones -->
-      <img src="../media/LOGO.png" alt="Imagen relacionada" class="service-image">
-
-      <label>¿A dónde vas?</label>
-      <select>
-        <option>Selecciona...</option>
-      </select>
-
-      <label>Seleccione su fecha:</label>
-      <input type="date">
-
-      <!-- Tipo de viaje -->
-      <label>Tipo de viaje:</label>
-      <div class="trip-type">
-        <button class="active" onclick="setTripType(this, 'ida-vuelta')">Ida y vuelta</button>
-        <button onclick="setTripType(this, 'solo-ida')">Solo ida</button>
-      </div>
-
-      <!-- Pasajeros -->
-      <label>Pasajeros:</label>
-      <div class="passenger-count">
-        <div>
-        Adultos:
-        <button onclick="updateAdults(-1)">-</button>
-        <span id="adults-count">1</span>
-        <button onclick="updateAdults(1)">+</button>
+    <!-- Encabezado -->
+    <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px;">
+        <div style="display: flex; align-items: center;">
+          <img src="../media/LOGO.png" alt="Ruedas Conectadas" style="height: 24px; margin-right: 10px;">
+          <span>Ruedas Conectadas</span>
         </div>
-        <div>
-            Menores:
-            <button>-</button>
-            <span>0</span>
-            <button>+</button>
+        <input type="text" placeholder="Buscar viajes">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="../login.html"><button>Cuenta</button></a>
+          <a href="../chatbot.html">
+            <button style="background: none; border: none; cursor: pointer;">
+              <img src="../media/bot.png" alt="Chatbot" style="width: 40px; height: 40px;">
+            </button>
+          </a>
         </div>
-      </div>
-      <button class="view-button" onclick="showResults()">ver disponibles</button>
-    </section>
+    </header>
 
-    <!-- Sección Derecha -->
-    <section class="right-section">
-      <h2>resultado:</h2>
-      <div id="results-container">
-        <!-- Aquí se mostrarán los resultados dinámicos -->
-      </div>
-    </section>
-  </main>
+    <!-- Botón para el menú de accesibilidad -->
+    <button class="menu-btn" onclick="toggleMenu()">
+        <img src="../media/acesibilidad.png" alt="Accesibilidad" />
+    </button>
 
-  <script>
-    let adults = 1; // Contador de adultos
-    let tripType = "ida-vuelta"; // Tipo de viaje por defecto
+    <!-- Menú de accesibilidad (oculto por defecto) -->
+    <div id="accessibility-menu" class="menu">
+        <button onclick="aumentarTexto()">Aumentar Texto</button>
+        <button onclick="disminuirTexto()">Disminuir Texto</button>
+        <button onclick="altoContraste()">Alto Contraste</button>
+        <button onclick="restablecer()">Restablecer Ajustes</button>
+    </div>
 
-    // Función para cambiar el tipo de viaje
-    function setTripType(button, type) {
-      document.querySelectorAll('.trip-type button').forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      tripType = type;
-    }
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Sección Izquierda -->
+        <section class="left-section">
+            <h2>elige tu servicio</h2>
+            <div class="tabs">
+                <button class="tab active">pasajero</button>
+                <button class="tab">conductor</button>
+            </div>
 
-    // Función para actualizar número de adultos
-    function updateAdults(change) {
-      adults += change;
-      if (adults < 1) adults = 1;
-      document.getElementById("adults-count").textContent = adults;
-    }
+            <!-- Imagen debajo de las opciones -->
+            <img src="../media/LOGO.png" alt="Imagen relacionada" class="service-image">
+
+            <label>¿A dónde vas?</label>
+            <select>
+                <option>Selecciona...</option>
+            </select>
+            <label>Fecha de viaje:</label>
+            <input type="date" id="fecha-viaje" onchange="guardarFecha()">
+
+
+            <!-- Tipo de viaje -->
+            <label>Tipo de viaje:</label>
+            <div class="trip-type">
+                <button class="active" onclick="setTripType(this, 'ida-vuelta')">Ida y vuelta</button>
+                <button onclick="setTripType(this, 'solo-ida')">Solo ida</button>
+            </div>
+
+            <!-- Pasajeros -->
+            <label>Pasajeros:</label>
+            <div class="passenger-count">
+                <div>
+                    Adultos:
+                    <button onclick="updateAdults(-1)">-</button>
+                    <span id="adults-count">1</span>
+                    <button onclick="updateAdults(1)">+</button>
+                </div>
+                <div>
+                    Menores:
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+            <button class="view-button" onclick="showResults()">ver disponibles</button>
+        </section>
+
+        <!-- Sección Derecha -->
+        <section class="right-section">
+            <h2>resultado:</h2>
+            <div id="results-container">
+                <!-- Aquí se mostrarán los resultados dinámicos -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let adults = 1; // Contador de adultos
+        let tripType = "ida-vuelta"; // Tipo de viaje por defecto
+
+        // Función para cambiar el tipo de viaje
+        function setTripType(button, type) {
+            document.querySelectorAll('.trip-type button').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            tripType = type;
+        }
+
+        // Función para actualizar número de adultos
+        function updateAdults(change) {
+            adults += change;
+            if (adults < 1) adults = 1;
+            document.getElementById("adults-count").textContent = adults;
+        }
 
     // Función para mostrar resultados dinámicos
     function showResults() {
-      const resultsContainer = document.getElementById("results-container");
-      resultsContainer.innerHTML = ""; // Limpia resultados previos
+        const resultsContainer = document.getElementById("results-container");
+        resultsContainer.innerHTML = ""; // Limpia resultados previos
 
-      const opciones = [
+        const opciones = [
+            { adultos: 1, detalle: "Viaje sencillo para 1 adulto", valor: "$50" },
+            { adultos: 2, detalle: "Viaje para pareja", valor: "$90" },
+            { adultos: 3, detalle: "Viaje grupal económico", valor: "$130" },
+            { adultos: 4, detalle: "Viaje grupal completo", valor: "$170" },
+        ];
+
+        const filtro = opciones.filter(op => op.adultos === adults);
+
+        if (filtro.length) {
+            filtro.forEach(opcion => {
+                const div = document.createElement("div");
+                div.className = "result";
+                div.innerHTML = `
+                    <div>
+                        <p><strong>${opcion.detalle}</strong></p>
+                        <p>Precio: ${opcion.valor}</p>
+                        <p>Tipo de Viaje: ${tripType}</p>
+                    </div>
+                    <button class="select-button" onclick="window.location.href='detalles.viaje.pasajero.html';">Seleccionar</button>
+
+                `;
+                resultsContainer.appendChild(div);
+            });
+        } else {
+            resultsContainer.innerHTML = "<p>No hay opciones disponibles para el número de adultos seleccionado.</p>";
+        }
+    }
+
+    // Función para guardar la fecha
+    function guardarFecha() {
+        const fecha = document.getElementById('fecha-viaje').value;
+        localStorage.setItem('fechaViaje', fecha); // Guardamos la fecha en localStorage
+    }
+
+
+// Función para mostrar resultados dinámicos
+function showResults() {
+    const resultsContainer = document.getElementById("results-container");
+    resultsContainer.innerHTML = ""; // Limpia resultados previos
+
+    const opciones = [
         { adultos: 1, detalle: "Viaje sencillo para 1 adulto", valor: "$50" },
         { adultos: 2, detalle: "Viaje para pareja", valor: "$90" },
         { adultos: 3, detalle: "Viaje grupal económico", valor: "$130" },
         { adultos: 4, detalle: "Viaje grupal completo", valor: "$170" },
-      ];
+    ];
 
-      const filtro = opciones.filter(op => op.adultos === adults);
+    const filtro = opciones.filter(op => op.adultos === adults);
 
-      if (filtro.length) {
+    if (filtro.length) {
         filtro.forEach(opcion => {
-          const div = document.createElement("div");
-          div.className = "result";
-          div.innerHTML = `
-            <div>
-              <p><strong>${opcion.detalle}</strong></p>
-              <p>Precio: ${opcion.valor}</p>
-              <p>Tipo de Viaje: ${tripType}</p>
-            </div>
-            <button class="select-button">Seleccionar</button>
-          `;
-          resultsContainer.appendChild(div);
+            let precioFinal = parseFloat(opcion.valor.replace('$', ''));
+            if (tripType === "solo-ida") {
+                precioFinal = precioFinal - 10;
+            }
+            const div = document.createElement("div");
+            div.className = "result";
+            div.innerHTML = `
+                <div>
+                    <p><strong>${opcion.detalle}</strong></p>
+                    <p>Precio: $${precioFinal}</p>
+                    <p>Tipo de Viaje: ${tripType}</p>
+                </div>
+                <button class="select-button" onclick="guardarSeleccion(${opcion.adultos},${precioFinal})">Seleccionar</button>
+            `;
+            resultsContainer.appendChild(div);
         });
-      } else {
+    } else {
         resultsContainer.innerHTML = "<p>No hay opciones disponibles para el número de adultos seleccionado.</p>";
-      }
     }
-  </script>
+}
+
+        // Función para guardar la selección en localStorage
+        function guardarSeleccion(adultosSeleccionados, precioFinal) {
+            localStorage.setItem('adultosSeleccionados', adultosSeleccionados);
+            localStorage.setItem('precioFinal',precioFinal);
+            window.location.href = 'detalles.viaje.pasajero.html'; // Redirige después de guardar
+        }
+
+        // Función para mostrar u ocultar el menú de accesibilidad
+        function toggleMenu() {
+            const menu = document.getElementById('accessibility-menu');
+            menu.classList.toggle('show');
+        }
+
+        // Funciones de accesibilidad
+        function aumentarTexto() {
+            document.body.style.fontSize = "larger";
+        }
+
+        function disminuirTexto() {
+            document.body.style.fontSize = "smaller";
+        }
+
+        function altoContraste() {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+
+        function restablecer() {
+            document.body.style = "";
+        }
+    </script>
 </body>
 </html>

@@ -5,170 +5,248 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruedas Conectadas</title>
     <style>
+        /* Estilos Generales */
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #fdf7ee;
+            font-family: Arial, sans-serif;
+            background-color: #FDF5EE;
         }
         header {
-            background-color: #f9da6e;
+            background-color: #F9D735;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
         }
-        header .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        header input {
-            padding: 10px;
+        header input, header button {
             border: none;
+            padding: 8px;
             border-radius: 5px;
-            margin-left: -20px;
         }
-        header .actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        header .actions button {
-            text-decoration: none;
-            color: black;
+        header button {
+            background-color: #FFBA36;
             font-weight: bold;
-            border-radius: 5px;
-            padding: 12px;
-            background-color: goldenrod;
-            color: white;
-            border-color: goldenrod;
-            font-size: 15px;
-        }
-
-        header .actions button:hover{
-            background-color: gold;
-            border-color: gold;
-            overflow: hidden;
-            transition: all 0.5s;
             cursor: pointer;
         }
+
+        /* Contenido Principal */
         main {
-            padding: 20px;
-        }
-        .container {
             display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
         }
-        .service-section {
-            flex: 1;
-            padding: 40px;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .left-section, .right-section {
+            margin-left: 30px;
+            width: 40%;
+            padding: 20px;
+            background: white;
             border-radius: 10px;
-            max-width: 500px;
+            box-shadow: 0 0 5px #ccc;
+        }
 
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
         }
-        .service-section h2 {
-            text-align: center;
-            color: #f9da6e;
-        }
-        .service-section button {
-            background-color: #f9da6e;
-            color: black;
+        .tab {
+            background-color: #F9D735;
             border: none;
-            padding: 12px 50px;
-            margin: 10px 0;
+            padding: 10px;
+            font-weight: bold;
             cursor: pointer;
             border-radius: 5px;
-            margin-right: 50px;
-            font-size: 20px;
         }
+        .tab.active { background-color: #FFBA36; }
 
-        .service-section button:hover{
-            background-color: goldenrod;
-            border-color: goldenrod;
-        }
-
-        .service-section button.active {
-            background-color: black;
-            color: white;
-            margin-right: 50px;
-        }
-
-        .service-section button.active:hover{
-            background-color: gray;
-            border-color: gray;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
+        /* Formulario */
+        label {
+            font-weight: bold;
             margin-top: 10px;
+            display: inline-block;
         }
-        .form-group input, .form-group select {
+        select, input[type="date"] {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            margin-top: 10px;
+        }
+        .trip-type button {
+            padding: 5px 10px;
+            border: 1px solid #FFBA36;
+            background-color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .trip-type button.active {
+            background-color: #FFBA36;
+            color: white;
+        }
+        .passenger-count {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .passenger-count div {
+            margin-bottom: 10px; 
+        }
+        .passenger-count button {
+            padding: 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .view-button {
+            background-color: #FFBA36;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Resultados */
+        .result {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .select-button {
+            background-color: #FFBA36;
+            color: white;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Estilos para la imagen */
+        .service-image {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 20px;
+            border-radius: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Estilos para el menú de accesibilidad */
+        .menu-btn {
+            position: fixed;
+            top: 100px;  /* Ajusta la posición en la página */
+            left: 0; /* Pegado al lado izquierdo */
+            background-color: #FFBA36; /* Fondo amarillo */
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px; /* Altura del botón */
+            width: 40px; /* Ancho del botón */
+        }
+
+        .menu-btn img {
+            width: 30px; /* Tamaño de la imagen de accesibilidad */
+            height: 30px; /* Tamaño de la imagen de accesibilidad */
+            object-fit: contain;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 120px;
+            left: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .menu button {
+            width: 100%;
             margin-bottom: 10px;
         }
-        .results {
-            flex: 1;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            text-align: center;
-            max-width: 500px;
-        }
-        .results h2 {
-            color: black;
+
+        .menu.show {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">Ruedas Conectadas</div>
+    <!-- Encabezado -->
+    <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px;">
+        <div style="display: flex; align-items: center;">
+          <img src="./media/LOGO.png" alt="Ruedas Conectadas" style="height: 24px; margin-right: 10px;">
+          <span>Ruedas Conectadas</span>
+        </div>
         <input type="text" placeholder="Buscar viajes">
-        <div class="actions">
-            <button href="#">Iniciar Sesion</button>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="./login.html"><button>Iniciar Sesión</button></a>
+          <a href="./chatbot.html">
+            <button style="background: none; border: none; cursor: pointer;">
+              <img src="./media/bot.png" alt="Chatbot" style="width: 40px; height: 40px;">
+            </button>
+          </a>
         </div>
     </header>
+
+    <!-- Botón para el menú de accesibilidad -->
+    <button class="menu-btn" onclick="toggleMenu()">
+        <img src="./media/acesibilidad.png" alt="Accesibilidad" />
+    </button>
+
+    <!-- Menú de accesibilidad (oculto por defecto) -->
+    <div id="accessibility-menu" class="menu">
+        <button onclick="aumentarTexto()">Aumentar Texto</button>
+        <button onclick="disminuirTexto()">Disminuir Texto</button>
+        <button onclick="altoContraste()">Alto Contraste</button>
+        <button onclick="restablecer()">Restablecer Ajustes</button>
+    </div>
+
+    <!-- Contenido Principal -->
     <main>
-        <h1>Elige tu servicio</h1>
-        <div class="container">
-            <div class="service-section">
-                <button class="active">Pasajero</button>
-                <button>Conductor</button>
-                <form>
-                    <div class="form-group">
-                        <label for="destino">¿A dónde vas?</label>
-                        <input type="text" id="destino" placeholder="Selecciona">
-                    </div>
-                    <div class="form-group">
-                        <label for="fecha">Selecciona tu fecha:</label>
-                        <input type="date" id="fecha">
-                    </div>
-                    <div class="form-group">
-                        <label>Pasajeros:</label>
-                        <div>
-                            Adultos: <input type="number" min="0" value="1">
-                            Menores: <input type="number" min="0" value="0">
-                        </div>
-                    </div>
-                    <button type="button">Ver disponibles</button>
-                </form>
+        <!-- Sección Izquierda -->
+        <section class="left-section">
+            <h2>elige tu servicio</h2>
+            <div class="tabs">
+                <a href="./login.html"><button class="tab active">pasajero</button></a>
+                <a href="./login.html"><button class="tab">conductor</button></a>
             </div>
-            <div class="results">
-                <h2>Resultado:</h2>
-                <p>Aún no hay viajes. Los conductores suelen publicarlos 2 o 3 días antes de la salida.</p>
-            </div>
-        </div>
-    </main>
+
+    <script>
+        // Función para mostrar u ocultar el menú de accesibilidad
+        function toggleMenu() {
+            const menu = document.getElementById('accessibility-menu');
+            menu.classList.toggle('show');
+        }
+
+        // Funciones de accesibilidad
+        function aumentarTexto() {
+            document.body.style.fontSize = "larger";
+        }
+
+        function disminuirTexto() {
+            document.body.style.fontSize = "smaller";
+        }
+
+        function altoContraste() {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+
+        function restablecer() {
+            document.body.style = "";
+        }
+    </script>
+
 </body>
 </html>
