@@ -303,10 +303,14 @@
 
   <!-- Botón Finalizar -->
   <div class="submit-button">
-    <button>finalizar y publicar</button>
+    <button onclick="Alerta()">finalizar y publicar</button>
   </div>
 
   <script>
+        function Alerta() {
+        alert("Se ha generado un nuevo viaje, se enviaran los datos completos del viaje generado al correo de esta cuenta");
+        window.location.href = "./viajes.html";
+    }
             // Función para mostrar u ocultar el menú de accesibilidad
             function toggleMenu() {
             const menu = document.getElementById('accessibility-menu');

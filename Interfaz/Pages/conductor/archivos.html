@@ -144,53 +144,53 @@
       background-color: #f1af17;
       color: white;
     }
-            /* Estilos para el menú de accesibilidad */
-            .menu-btn {
-            position: fixed;
-            top: 100px;  /* Ajusta la posición en la página */
-            left: 0; /* Pegado al lado izquierdo */
-            background-color: #FFBA36; /* Fondo amarillo */
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 40px; /* Altura del botón */
-            width: 40px; /* Ancho del botón */
-        }
+    /* Estilos para el menú de accesibilidad */
+    .menu-btn {
+      position: fixed;
+      top: 100px;
+      left: 0;
+      background-color: #FFBA36;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      width: 40px;
+    }
 
-        .menu-btn img {
-            width: 30px; /* Tamaño de la imagen de accesibilidad */
-            height: 30px; /* Tamaño de la imagen de accesibilidad */
-            object-fit: contain;
-        }
+    .menu-btn img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
 
-        .menu {
-            display: none;
-            position: absolute;
-            top: 120px;
-            left: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            z-index: 10;
-        }
+    .menu {
+      display: none;
+      position: absolute;
+      top: 120px;
+      left: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      z-index: 10;
+    }
 
-        .menu button {
-            width: 100%;
-            margin-bottom: 10px;
-        }
+    .menu button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
 
-        .menu.show {
-            display: block;
-        }
+    .menu.show {
+      display: block;
+    }
   </style>
 </head>
 <body>
-  <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px;">
+  <header>
     <div style="display: flex; align-items: center;">
       <img src="../media/LOGO.png" alt="Ruedas Conectadas" style="height: 24px; margin-right: 10px;">
       <span>Ruedas Conectadas</span>
@@ -205,18 +205,20 @@
       </a>
     </div>
   </header>
+
   <!-- Botón para el menú de accesibilidad -->
   <button class="menu-btn" onclick="toggleMenu()">
     <img src="../media/acesibilidad.png" alt="Accesibilidad" />
-</button>
+  </button>
 
-<!-- Menú de accesibilidad (oculto por defecto) -->
-<div id="accessibility-menu" class="menu">
+  <!-- Menú de accesibilidad (oculto por defecto) -->
+  <div id="accessibility-menu" class="menu">
     <button onclick="aumentarTexto()">Aumentar Texto</button>
     <button onclick="disminuirTexto()">Disminuir Texto</button>
     <button onclick="altoContraste()">Alto Contraste</button>
     <button onclick="restablecer()">Restablecer Ajustes</button>
-</div>
+  </div>
+
   <main>
     <h2>elige tu servicio</h2>
     <div class="options">
@@ -244,24 +246,29 @@
           <input type="date" id="fecha-exp">
         </div>
       </div>
+
       <div class="form-section">
         <h3>carga de documentación:</h3>
         <div class="upload-buttons">
-          <div class="upload-button">
+          <div class="upload-button" onclick="document.getElementById('file-licencia').click();">
             <span>foto de licencia:</span>
             <img src="../media/arrow.png" alt="subir">
+            <input type="file" id="file-licencia" style="display:none" onchange="handleFileUpload('file-licencia')">
           </div>
-          <div class="upload-button">
+          <div class="upload-button" onclick="document.getElementById('file-vehiculo').click();">
             <span>foto de vehículo:</span>
             <img src="../media/arrow.png" alt="subir">
+            <input type="file" id="file-vehiculo" style="display:none" onchange="handleFileUpload('file-vehiculo')">
           </div>
-          <div class="upload-button">
+          <div class="upload-button" onclick="document.getElementById('file-identidad').click();">
             <span>confirmación de identidad:</span>
             <img src="../media/arrow.png" alt="subir">
+            <input type="file" id="file-identidad" style="display:none" onchange="handleFileUpload('file-identidad')">
           </div>
-          <div class="upload-button">
+          <div class="upload-button" onclick="document.getElementById('file-antecedentes').click();">
             <span>carta de antecedentes no penales:</span>
             <img src="../media/arrow.png" alt="subir">
+            <input type="file" id="file-antecedentes" style="display:none" onchange="handleFileUpload('file-antecedentes')">
           </div>
         </div>
         <div class="extra-info">
@@ -271,34 +278,42 @@
       </div>
     </div>
     <div class="actions">
-      <button class="back">regresar</button>
-      <button class="next">siguiente</button>
+      <a href="../login.html"><button class="back">regresar</button></a>
+      <a href="./viajes.html"><button class="next">siguiente</button></a>
     </div>
   </main>
+
   <script>
-            // Función para mostrar u ocultar el menú de accesibilidad
-            function toggleMenu() {
-            const menu = document.getElementById('accessibility-menu');
-            menu.classList.toggle('show');
-        }
+    // Función para mostrar u ocultar el menú de accesibilidad
+    function toggleMenu() {
+      const menu = document.getElementById('accessibility-menu');
+      menu.classList.toggle('show');
+    }
 
-        // Funciones de accesibilidad
-        function aumentarTexto() {
-            document.body.style.fontSize = "larger";
-        }
+    // Funciones de accesibilidad
+    function aumentarTexto() {
+      document.body.style.fontSize = "larger";
+    }
 
-        function disminuirTexto() {
-            document.body.style.fontSize = "smaller";
-        }
+    function disminuirTexto() {
+      document.body.style.fontSize = "smaller";
+    }
 
-        function altoContraste() {
-            document.body.style.backgroundColor = "black";
-            document.body.style.color = "white";
-        }
+    function altoContraste() {
+      document.body.style.backgroundColor = "black";
+      document.body.style.color = "white";
+    }
 
-        function restablecer() {
-            document.body.style = "";
-        }
+    function restablecer() {
+      document.body.style = "";
+    }
+
+    // Función para manejar la carga de archivos
+    function handleFileUpload(fileId) {
+      const fileInput = document.getElementById(fileId);
+      const fileName = fileInput.files[0] ? fileInput.files[0].name : 'Ningún archivo seleccionado';
+      alert('Archivo cargado: ' + fileName);
+    }
   </script>
 </body>
 </html>
