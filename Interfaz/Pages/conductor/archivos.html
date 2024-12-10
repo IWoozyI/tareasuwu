@@ -144,6 +144,49 @@
       background-color: #f1af17;
       color: white;
     }
+            /* Estilos para el menú de accesibilidad */
+            .menu-btn {
+            position: fixed;
+            top: 100px;  /* Ajusta la posición en la página */
+            left: 0; /* Pegado al lado izquierdo */
+            background-color: #FFBA36; /* Fondo amarillo */
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px; /* Altura del botón */
+            width: 40px; /* Ancho del botón */
+        }
+
+        .menu-btn img {
+            width: 30px; /* Tamaño de la imagen de accesibilidad */
+            height: 30px; /* Tamaño de la imagen de accesibilidad */
+            object-fit: contain;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 120px;
+            left: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .menu button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .menu.show {
+            display: block;
+        }
   </style>
 </head>
 <body>
@@ -162,6 +205,18 @@
       </a>
     </div>
   </header>
+  <!-- Botón para el menú de accesibilidad -->
+  <button class="menu-btn" onclick="toggleMenu()">
+    <img src="../media/acesibilidad.png" alt="Accesibilidad" />
+</button>
+
+<!-- Menú de accesibilidad (oculto por defecto) -->
+<div id="accessibility-menu" class="menu">
+    <button onclick="aumentarTexto()">Aumentar Texto</button>
+    <button onclick="disminuirTexto()">Disminuir Texto</button>
+    <button onclick="altoContraste()">Alto Contraste</button>
+    <button onclick="restablecer()">Restablecer Ajustes</button>
+</div>
   <main>
     <h2>elige tu servicio</h2>
     <div class="options">
@@ -220,5 +275,30 @@
       <button class="next">siguiente</button>
     </div>
   </main>
+  <script>
+            // Función para mostrar u ocultar el menú de accesibilidad
+            function toggleMenu() {
+            const menu = document.getElementById('accessibility-menu');
+            menu.classList.toggle('show');
+        }
+
+        // Funciones de accesibilidad
+        function aumentarTexto() {
+            document.body.style.fontSize = "larger";
+        }
+
+        function disminuirTexto() {
+            document.body.style.fontSize = "smaller";
+        }
+
+        function altoContraste() {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+
+        function restablecer() {
+            document.body.style = "";
+        }
+  </script>
 </body>
 </html>

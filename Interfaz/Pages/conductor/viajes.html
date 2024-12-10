@@ -7,24 +7,34 @@
     <style>
         /* General Styles */
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            font-family: Arial, sans-serif;
+            background-color: #FDF5EE;
         }
         header {
-            background-color: #f9d735;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
+            background-color: #F9D735;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px;
         }
-        header h1 {
-            margin: 0;
-            font-size: 1.5em;
+
+        header input, header button {
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
         }
+
+        header button {
+            background-color: #FFBA36;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         main {
-            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
         }
         section {
             margin: 20px auto;
@@ -34,11 +44,17 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+        .viajes-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
         .viaje {
             border: 1px solid #ccc;
             padding: 10px;
             border-radius: 5px;
-            margin-bottom: 10px;
+            width: 250px;
+            text-align: center;
         }
         button {
             background-color: #f9d735;
@@ -51,6 +67,28 @@
         }
         button:hover {
             background-color: #f9d735;
+        }
+        .create-viaje-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .create-viaje-button img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .create-viaje-button button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            background-color: #f9d735;
+            color: #fff;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
         }
         footer {
             text-align: center;
@@ -66,33 +104,136 @@
                 padding: 10px;
             }
         }
+        
+        .menu.show {
+            display: block;
+        }
+            /* Estilos para el menú de accesibilidad */
+    .menu-btn {
+            position: fixed;
+            top: 100px;  /* Ajusta la posición en la página */
+            left: 0; /* Pegado al lado izquierdo */
+            background-color: #FFBA36; /* Fondo amarillo */
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px; /* Altura del botón */
+            width: 40px; /* Ancho del botón */
+        }
+
+        .menu-btn img {
+            width: 30px; /* Tamaño de la imagen de accesibilidad */
+            height: 30px; /* Tamaño de la imagen de accesibilidad */
+            object-fit: contain;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 120px;
+            left: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .menu button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .menu.show {
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Mis Viajes</h1>
+    <!-- Encabezado -->
+    <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px;">
+        <div style="display: flex; align-items: center;">
+          <img src="../media/LOGO.png" alt="Ruedas Conectadas" style="height: 24px; margin-right: 10px;">
+          <span>Ruedas Conectadas</span>
+        </div>
+        <input type="text" placeholder="Buscar viajes">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="../login.html"><button>Cuenta</button></a>
+          <a href="../chatbot.html">
+            <button style="background: none; border: none; cursor: pointer;">
+              <img src="../media/bot.png" alt="Chatbot" style="width: 40px; height: 40px;">
+            </button>
+          </a>
+        </div>
     </header>
+    <!-- Botón para el menú de accesibilidad -->
+    <button class="menu-btn" onclick="toggleMenu()">
+        <img src="../media/acesibilidad.png" alt="Accesibilidad" />
+    </button>
+
+    <!-- Menú de accesibilidad (oculto por defecto) -->
+    <div id="accessibility-menu" class="menu">
+        <button onclick="aumentarTexto()">Aumentar Texto</button>
+        <button onclick="disminuirTexto()">Disminuir Texto</button>
+        <button onclick="altoContraste()">Alto Contraste</button>
+        <button onclick="restablecer()">Restablecer Ajustes</button>
+    </div>
     <main>
         <section>
-            <h2>Viajes Creados</h2>
-            <div class="viaje">
-                <h3>Viaje a Quito</h3>
-                <p>Fecha: 12/12/2024</p>
-                <p>Precio: $20</p>
-                <button>Editar</button>
-                <button>Eliminar</button>
+            <div class="create-viaje-button">
+                <a href="./nuevo.viaje.conductor.html"><button>
+                    <img src="../media/nuevo.png" alt="Crear viaje">
+                    <label>Crear nuevo viaje</label>
+                </button></a>
             </div>
-            <div class="viaje">
-                <h3>Viaje a Guayaquil</h3>
-                <p>Fecha: 13/12/2024</p>
-                <p>Precio: $25</p>
-                <button>Editar</button>
-                <button>Eliminar</button>
+
+            <h2>Viajes Creados</h2>
+            <div class="viajes-container">
+                <div class="viaje">
+                    <h3>Viaje a Quito</h3>
+                    <p>Fecha: 12/12/2024</p>
+                    <p>Precio: $20</p>
+                    <button>Editar</button>
+                    <button>Eliminar</button>
+                </div>
+                <div class="viaje">
+                    <h3>Viaje a Guayaquil</h3>
+                    <p>Fecha: 13/12/2024</p>
+                    <p>Precio: $25</p>
+                    <button>Editar</button>
+                    <button>Eliminar</button>
+                </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>© 2024 Viajes Compartidos</p>
-    </footer>
+<script>
+            // Función para mostrar u ocultar el menú de accesibilidad
+            function toggleMenu() {
+            const menu = document.getElementById('accessibility-menu');
+            menu.classList.toggle('show');
+        }
+
+        // Funciones de accesibilidad
+        function aumentarTexto() {
+            document.body.style.fontSize = "larger";
+        }
+
+        function disminuirTexto() {
+            document.body.style.fontSize = "smaller";
+        }
+
+        function altoContraste() {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+
+        function restablecer() {
+            document.body.style = "";
+        }
+</script>
 </body>
 </html>
