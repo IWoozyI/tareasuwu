@@ -2,23 +2,27 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Comentario {
+type Publicacion {
   id: ID!
+  titulo: String!
   contenido: String!
-  fechayhora: String!
+  fechapublicacion: String!
+  comentario: [Comentario!]!
 }
 
 type Usuario {
   id: ID!
   nombre: String!
   email: String!
+  comentario: [Comentario!]!
 }
 
-type Publicacion {
+type Comentario {
   id: ID!
-  titulo: String!
   contenido: String!
-  fechapublicacion: String!
+  fechayhora: String!
+  ID_Usuario: String!
+  ID_Publicacion: String!
 }
 
 type Query {

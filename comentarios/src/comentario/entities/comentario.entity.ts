@@ -1,5 +1,7 @@
 import { ObjectType, Field, Int, ID } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Publicacion } from 'src/publicacion/entities/publicacion.entity';
+import { Usuario } from 'src/usuario/entities/usuario.entity';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @ObjectType()
 @Entity({name:'comentario'})
@@ -17,5 +19,19 @@ export class Comentario {
   @Field(() => String)
   fechayhora:string
 
+  @Column()
+  @Field(() => String)
+  ID_Usuario: string
+
+  @ManyToOne(()=> Usuario, (usuario)=> usuario.comentario, {onDelete: 'CASCADE'})
+  @JoinColumn({name:'ID_Usuario'})
+  usuario: Usuario
   
+  @Column()
+  @Field(() => String)
+  ID_Publicacion: string
+
+  @ManyToOne(()=> Publicacion, (prublicacion)=> prublicacion.comentario, {onDelete: 'CASCADE'})
+  @JoinColumn({name:'ID_Publicacion'})
+  prublicacion: Publicacion
 }
