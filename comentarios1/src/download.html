@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descargar PDF</title>
+</head>
+<body>
+  <h1>Descargar Reporte de Comentarios</h1>
+  <button id="downloadButton">Descargar PDF</button>
+
+  <script>
+    // Función para obtener el link desde GraphQL y descargar el PDF
+    async function downloadPDF() {
+      try {
+        // Hacer una consulta GraphQL para obtener el link
+        const response = await fetch('http://localhost:3000/graphql', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            query: `
+              query {
+                getComentariosPDFLink
+              }
+            `,
+          }),
+        });
+
+        // Parsear la respuesta JSON
+        const result = await response.json();
+        const pdfLink = result.data.getComentariosPDFLink;
+
+        if (pdfLink) {
+          // Realizar la descarga del PDF usando el link obtenido
+          const pdfResponse = await fetch(pdfLink);
+          const blob = await pdfResponse.blob();
+
+          // Crear un enlace temporal para descargar el archivo
+          const link = document.createElement('a');
+          link.href = window.URL.createObjectURL(blob);
+          link.download = 'comentarios.pdf'; // Nombre del archivo PDF
+          link.click(); // Simula el clic para descargar
+        } else {
+          console.error('No se pudo obtener el link del PDF.');
+        }
+      } catch (error) {
+        console.error('Error al descargar el PDF:', error);
+      }
+    }
+
+    // Asignar la función al botón
+    document.getElementById('downloadButton').addEventListener('click', downloadPDF);
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Publicacion {
+  id: ID!
+  titulo: String!
+  contenido: String!
+  fechapublicacion: String!
+  comentario: [Comentario!]!
+}
+
+type Usuario {
+  id: ID!
+  nombre: String!
+  email: String!
+  comentario: [Comentario!]!
+}
+
+type Comentario {
+  id: ID!
+  contenido: String!
+  fechayhora: String!
+  ID_Usuario: String!
+  usuario: Usuario!
+  ID_Publicacion: String!
+  publicacion: Publicacion!
+}
+
+type Query {
+  getComentariosPDFLink: String!
+  comentarios: [Comentario!]!
+  comentario(id: String!): Comentario!
+  usuarios: [Usuario!]!
+  usuario(id: String!): Usuario!
+  publicaciones: [Publicacion!]!
+  publicacion(id: String!): Publicacion!
+}
+
+type Mutation {
+  createComentario(createComentarioInput: CreateComentarioInput!): Comentario!
+  updateComentario(updateComentarioInput: UpdateComentarioInput!): Comentario!
+  removeComentario(id: String!): Comentario!
+  createUsuario(createUsuarioInput: CreateUsuarioInput!): Usuario!
+  updateUsuario(updateUsuarioInput: UpdateUsuarioInput!): Usuario!
+  removeUsuario(id: String!): Usuario!
+  createPublicacion(createPublicacionInput: CreatePublicacionInput!): Publicacion!
+  updatePublicacion(updatePublicacionInput: UpdatePublicacionInput!): Publicacion!
+  removePublicacion(id: String!): Publicacion!
+}
+
+input CreateComentarioInput {
+  contenido: String!
+  fechayhora: String!
+  ID_Usuario: String!
+  ID_Publicacion: String!
+}
+
+input UpdateComentarioInput {
+  contenido: String
+  fechayhora: String
+  ID_Usuario: String
+  ID_Publicacion: String
+  id: ID!
+}
+
+input CreateUsuarioInput {
+  nombre: String!
+  email: String!
+}
+
+input UpdateUsuarioInput {
+  nombre: String
+  email: String
+  id: ID!
+}
+
+input CreatePublicacionInput {
+  titulo: String!
+  contenido: String!
+  fechapublicacion: String!
+}
+
+input UpdatePublicacionInput {
+  titulo: String
+  contenido: String
+  fechapublicacion: String
+  id: ID!
+}
